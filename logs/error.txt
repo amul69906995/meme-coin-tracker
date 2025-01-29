@@ -1,0 +1,171 @@
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884272258920890750",
+  "errorCode": 11000
+}{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884292421493944620",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884282367923347793",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884288102832955731",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1868409198846804078",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1780377650625945683",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884288555914244165",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884324314779984321",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884322070269677667",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884292421493944620",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884282367923347793",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884302350028034394",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884288102832955731",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1868409198846804078",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1780377650625945683",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884324203576414491",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884323314551963910",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884296700720034190",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884288555914244165",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884324314779984321",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884292421493944620",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884282367923347793",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884302350028034394",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884288102832955731",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1868409198846804078",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1780377650625945683",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884296700720034190",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884288555914244165",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884340924165292075",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884292421493944620",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884282367923347793",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884302350028034394",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884288102832955731",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1868409198846804078",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1780377650625945683",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884339185265385780",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884337704051302492",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884296700720034190",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884288555914244165",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884292421493944620",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884282367923347793",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1868409198846804078",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1780377650625945683",
+  "errorCode": 11000
+}

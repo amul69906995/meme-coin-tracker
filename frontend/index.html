@@ -181,6 +181,9 @@
     socket.on('newTweet', (data) => {
       addNewTweet(data);
     });
+    socket.io.on("reconnect_attempt", (attempt) => {
+        console.log('Reconnecting:', attempt);
+      });
   </script>
 </body>
 </html>

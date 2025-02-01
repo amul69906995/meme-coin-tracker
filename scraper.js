@@ -59,7 +59,7 @@ const createDocTweetToSaveToDb = async (tweets, influencer) => {
         };
 
         try {
-            console.log("Inside createDocTweetToSaveToDb:", newTweetDoc);
+            //console.log("Inside createDocTweetToSaveToDb:", newTweetDoc);
             const result = await tweet_tracker.insertOne(newTweetDoc);
             newTweetDoc._id = result.insertedId;
             if(result){
@@ -68,7 +68,7 @@ const createDocTweetToSaveToDb = async (tweets, influencer) => {
             console.log(`A document was inserted with the _id: ${result.insertedId}`);
         } catch (e) {
             if (e.code === 11000) {
-                await writeErrorToLog({ message: `Duplicate tweet detected. Skipping tweetId: ${tweetId}`, errorCode: e.code })
+                 writeErrorToLog({ message: `Duplicate tweet detected. Skipping tweetId: ${tweetId}`, errorCode: e.code })
                 console.log(`Duplicate tweet detected. Skipping tweetId: ${tweetId}`);
             } else {
                 console.error("Error in inserting doc:", e);

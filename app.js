@@ -23,8 +23,10 @@ app.get('/', () => {
 const server = http.createServer(app);
 // Setup CORS and Socket.IO
 export const io = new Server(server, {
+    pingInterval:25000,
+    pingTimeout: 60000,
     cors: {
-        origin: "*", // Allow all origins (Change for production)
+        origin: "*",
         methods: ["GET", "POST"]
     }
 });

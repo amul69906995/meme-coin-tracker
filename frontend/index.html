@@ -1,21 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>meme_coin_tracker</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meme Coin Trading Alerts</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #fafafa;
+    }
+
+    h1 {
+      text-align: center;
+      color: #1a1a1a;
+      margin: 0 0 2rem;
+      padding: 1rem;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+    }
+
+    #tweetsList {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    .tweet {
+      background: white;
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      opacity: 1;
+      transition: all 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    }
+
+    /* Initial state for new tweets */
+    .tweet.new {
+      opacity: 0;
+      transform: translateY(-20px);
+      border-left: 4px solid #FFD700;
+    }
+
+    /* Animated state */
+    .tweet.animate {
+      opacity: 1;
+      transform: translateY(0);
+      border-left-color: transparent;
+    }
+
+    .tweet-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      margin-right: 12px;
+      object-fit: cover;
+    }
+
+    .user-info {
+      flex-grow: 1;
+    }
+
+    .user-name {
+      font-weight: 600;
+      color: #1a1a1a;
+      margin: 0;
+    }
+
+    .user-handle {
+      color: #657786;
+      font-size: 0.9em;
+      margin: 0;
+    }
+
+    .tweet-content {
+      color: #1a1a1a;
+      line-height: 1.4;
+      margin: 0 0 1rem;
+    }
+
+    .tweet-media {
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 1rem;
+    }
+
+    .tweet-media img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .timestamp {
+      color: #657786;
+      font-size: 0.85em;
+      margin-top: 1rem;
+      display: block;
+    }
+  </style>
 </head>
-
 <body>
+  <h1>🔔 Meme Coin Alerts</h1>
+  <ul id="tweetsList"></ul>
 
+  <script type="module">
+    import { io } from "https://cdn.socket.io/4.8.1/socket.io.esm.min.js";
 
+    const socket = io('http://localhost:5444');
+    const tweetsList = document.getElementById('tweetsList');
 
-    <script type="module">
-        import { io } from "https://cdn.socket.io/4.8.1/socket.io.esm.min.js";
+    function createTweetElement(tweetData) {
+      const li = document.createElement('li');
+      li.className = 'tweet';
       
-        const socket = io();
-      </script>
-</body>
+      const date = tweetData.createdAt ? new Date(tweetData.createdAt) : new Date();
+      
+      li.innerHTML = `
+        <div class="tweet-header">
+          <img src="${tweetData.author?.avatar || 'https://via.placeholder.com/42'}" 
+               class="avatar" 
+               alt="${tweetData.author?.name || 'User'}">
+          <div class="user-info">
+            <h3 class="user-name">${tweetData.influencerName || 'Unknown Trader'}</h3>
+            <p class="user-handle">@${tweetData.author?.screen_name || 'unknown'}</p>
+          </div>
+        </div>
+        <p class="tweet-content">${tweetData.tweetText || ''}</p>
+        ${tweetData.media?.photo?.length ? `
+          <div class="tweet-media">
+            <img src="${tweetData.media.photo[0].media_url_https}" alt="Tweet media">
+          </div>
+        ` : ''}
+        <span class="timestamp">${date.toLocaleString()}</span>
+      `;
 
+      return li;
+    }
+
+    function addNewTweet(tweetData) {
+      const li = createTweetElement(tweetData);
+      li.classList.add('new');
+      tweetsList.prepend(li);
+      
+      // Trigger animation
+      requestAnimationFrame(() => {
+        li.classList.add('animate');
+      });
+
+      // Remove animation classes after completion
+      setTimeout(() => {
+        li.classList.remove('new', 'animate');
+      }, 500);
+    }
+
+    function addInitialTweets(tweets) {
+      tweets.reverse().forEach(tweet => { // Assuming newest first
+        const li = createTweetElement(tweet);
+        tweetsList.appendChild(li);
+      });
+    }
+
+    socket.on('connect', () => console.log('Connected:', socket.id));
+
+    socket.on('currentTweet', (data) => {
+      if (Array.isArray(data)) {
+        addInitialTweets(data);
+      }
+    });
+
+    socket.on('newTweet', (data) => {
+      addNewTweet(data);
+    });
+  </script>
+</body>
 </html>

@@ -8,9 +8,10 @@ import { Server } from "socket.io";
 const app = express();
 
 //running main sechudler
-// mainSechudler().catch(error=>{
-//     console.error("main sechudler",error);
-// });
+mainSechudler().catch(error=>{
+    console.error("main sechudler",error);
+});
+//console.log("thisis client in app.js",client)
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -21,20 +22,36 @@ app.get('/', () => {
 })
 const server = http.createServer(app);
 // Setup CORS and Socket.IO
-const io = new Server(server, {
+export const io = new Server(server, {
     cors: {
         origin: "*", // Allow all origins (Change for production)
         methods: ["GET", "POST"]
     }
 });
-io.on("connection", (socket) => {
+const fetchCurrentTweet = async () => {
+    try {
+        const myDB = client.db("tracker");
+        const tweet_tracker = myDB.collection("tweet_tracker");
+        const tweet = await tweet_tracker.find().toArray();
+        return tweet;
+    } catch (error) {
+        console.log("error in fetchCureent tweets", fetchCurrentTweet)
+    }
+
+}
+io.on("connection", async (socket) => {
     console.log(`User connected: ${socket.id}`);
 
-    // Listen for messages from clients
-    socket.on("message", (data) => {
-        console.log(`Message from ${socket.id}:`, data);
-        io.emit("message", data); // Broadcast message to all clients
-    });
+    try{
+        const tweet = await fetchCurrentTweet();
+        //console.log("currenttweet",tweet)
+       if(tweet){
+        socket.emit("currentTweet", tweet);
+       }
+    }catch(error){
+        console.log("error in connection",error)
+    }
+
 
     // Handle user disconnection
     socket.on("disconnect", () => {

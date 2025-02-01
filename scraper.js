@@ -4,8 +4,8 @@ import OpenAI from "openai";
 import { tweetPrompt } from './helper/prompt.js';
 import { writeErrorToLog } from './logs/error.log.js';
 import { connectDb } from './db.js';
-
-
+import { client } from './db.js';
+import { io } from './app.js';
 const openai = new OpenAI({
     apiKey: process.env.GOOGLE_GEMINI_API,
     baseURL: "https://generativelanguage.googleapis.com/v1beta/openai/"
@@ -19,7 +19,22 @@ const openai = new OpenAI({
 //tweets are not edited
 const scrapeInterval = 4 * 60 * 1000;
 const tweetInScrapeInterval = scrapeInterval / (2 * 60 * 1000);
-const influencerUserName = ['AltcoinGordon', 'VitalikButerin', 'APompliano', 'aantonop', 'laurashin', 'davidgokhshtein'];
+const influencerUserName = [
+    'AltcoinGordon',
+    'VitalikButerin',
+    'APompliano',
+    'aantonop',
+    'laurashin',
+    'davidgokhshtein',
+    'CryptoCobain',      // Known for his crypto commentary and market insights
+    'WhalePanda',        // A long-time crypto Twitter personality
+    'CryptoRand',        // Frequently shares market analysis and crypto trends
+    'IvanOnTech',        // Educator and blockchain advocate
+    '100trillionUSD',    // PlanB, famous for the stock-to-flow model on Bitcoin
+    'TheCryptoDog',      // Offers crypto market commentary
+    'CryptoKaleo'        // Provides market insights and trading updates
+  ];
+  
 //write a main fun which will run every getTweets() 2 min
 const createDocTweetToSaveToDb = async (tweets, influencer) => {
     const myDB = client.db("tracker");
@@ -46,6 +61,10 @@ const createDocTweetToSaveToDb = async (tweets, influencer) => {
         try {
             console.log("Inside createDocTweetToSaveToDb:", newTweetDoc);
             const result = await tweet_tracker.insertOne(newTweetDoc);
+            newTweetDoc._id = result.insertedId;
+            if(result){
+                io.emit('newTweet',newTweetDoc);
+            }
             console.log(`A document was inserted with the _id: ${result.insertedId}`);
         } catch (e) {
             if (e.code === 11000) {

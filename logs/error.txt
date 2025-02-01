@@ -730,3 +730,51 @@
 {
   "message": "Cannot read properties of undefined (reading '0')"
 }
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1885528741910081704",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1885528355069452458",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1885528741910081704",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1885528355069452458",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1885046277932552697",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1884995608491987005",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1885547074680201293",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1885498607404470615",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1868409198846804078",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1780377650625945683",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1885535907815498140",
+  "errorCode": 11000
+}
+{
+  "message": "Duplicate tweet detected. Skipping tweetId: 1885512971587125460",
+  "errorCode": 11000
+}

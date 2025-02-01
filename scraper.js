@@ -98,8 +98,11 @@ async function main() {
     try {
         for (const influencer of influencerUserName) {
             const data = await getTweets(influencer);
-            console.log(influencer, data.timeline[0]);
-
+            // console.log(influencer, data.timeline[0]);
+            if (!data || !data.timeline || !Array.isArray(data.timeline) || data.timeline.length === 0) {
+                console.log(`No tweets found for ${influencer}`);
+                continue; // Skip this influencer and move to the next
+            }
             const tweets = data.timeline.slice(0, tweetInScrapeInterval);
             await createDocTweetToSaveToDb(tweets, influencer);
         }

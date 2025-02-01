@@ -3,6 +3,18 @@
 ## Introduction
 Meme Coin Tracker is a project designed to scrape and save tweets from specific influencers related to meme coins. The project consists of two main parts: a scraper that saves unique tweets to a central database and a socket server that serves this data in real-time with a minimal UI. This tool can be extended to other social media platforms and used for various purposes, such as sentiment analysis or staying updated with the latest trends.
 
+## Demo
+Here are some assets demonstrating the Meme Coin Tracker in action:
+
+### Video
+![Watch Demo Video](assets/meme_coin_tracker_demo1.mp4)
+
+### Screenshot
+![Demo Screenshot](assets/memecoin1.png)
+![Demo Screenshot](assets/memecoin2.png)
+![Demo Screenshot](assets/memecoin3.png)
+![Demo Screenshot](assets/memecoin4.png)
+
 ## Problem Statement
 Tracking tweets from influencers manually can be time-consuming and inefficient. There is a need for an automated system that can scrape tweets, save them to a database, and serve the data in real-time. This system should also be able to handle media in posts and provide a user-friendly interface.
 
@@ -74,17 +86,6 @@ To install and run the Meme Coin Tracker, follow these steps:
 
 6. Open `index.html` in your browser to view the frontend. The styling part is done by GPT.
 
-## Demo
-Here are some assets demonstrating the Meme Coin Tracker in action:
-
-### Video
-![Demo Video](assets\meme_coin_tracker_demo1.mp4)
-
-### Screenshot
-![Demo Screenshot](assets/memecoin1.png)
-![Demo Screenshot](assets/memecoin2.png)
-![Demo Screenshot](assets/memecoin3.png)
-![Demo Screenshot](assets/memecoin4.png)
 
 ## Contributing
 // ...existing code...

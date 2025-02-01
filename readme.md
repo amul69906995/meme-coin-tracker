@@ -30,7 +30,7 @@ The socket server is responsible for:
 - Extending support to other social media platforms.
 
 ## Challenges Overcome
-During the development of the Meme Coin Tracker, one of the challenges faced was dealing with the output of `console.log` when logging nested objects. Normally, using `console.log` to print nested objects  resulted in `[ [Object] ]`, which made it unclear what the actual content was. To overcome this, `JSON.stringify` was used to convert the object into a readable string format. This approach provided a clear view of the data structure and content, making debugging and development more efficient.
+During the development of the Meme Coin Tracker, one of the challenges faced was dealing with the output of `console.log` when logging nested objects. Normally, using `console.log` to print nested objects resulted in `[ [Object] ]`, which made it unclear what the actual content was. To overcome this, `JSON.stringify` was used to convert the object into a readable string format. This approach provided a clear view of the data structure and content, making debugging and development more efficient.
 
 Example:
 ```javascript
@@ -41,8 +41,50 @@ console.log(complex_nested_objects); // Output: [ [Object] ]
 console.log(JSON.stringify(complex_nested_objects, null, 2)); // Output: [ { "url": "http://example.com" }, { "url": "http://example2.com" } ]
 ```
 
+## Current Issues
+Currently, there is an issue where the socket disconnects every time a duplicated tweet is encountered or when the main function waits for 2 seconds before another scrape. This issue needs to be addressed to ensure continuous real-time data streaming without interruptions.
+
 ## Installation
-// ...existing code...
+To install and run the Meme Coin Tracker, follow these steps:
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/amul69906995/meme-coin-tracker.git
+    ```
+
+2. Navigate to the project directory:
+    ```bash
+    cd meme-coin-tracker
+    ```
+
+3. Install the dependencies:
+    ```bash
+    npm install
+    ```
+
+4. Set up the environment variables by copying `.env.example` to `.env` and configuring the necessary values:
+    ```bash
+    cp .env.example .env
+    ```
+
+5. Run the backend server:
+    ```bash
+    node app.js
+    ```
+
+6. Open `index.html` in your browser to view the frontend. The styling part is done by GPT.
+
+## Demo
+Here are some assets demonstrating the Meme Coin Tracker in action:
+
+### Video
+![Demo Video](assets\meme_coin_tracker_demo1.mp4)
+
+### Screenshot
+![Demo Screenshot](assets/memecoin1.png)
+![Demo Screenshot](assets/memecoin2.png)
+![Demo Screenshot](assets/memecoin3.png)
+![Demo Screenshot](assets/memecoin4.png)
 
 ## Contributing
 // ...existing code...
